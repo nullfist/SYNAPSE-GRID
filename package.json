@@ -1,0 +1,24 @@
+{
+  "name": "synapse-grid",
+  "version": "1.0.0",
+  "description": "SYNAPSE GRID - A self-adaptive distributed multi-agent system without central control.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server/index.js",
+    "dev": "node src/server/index.js",
+    "test": "node --test tests/advanced-features.test.js && node --test tests/router.test.js && node --test tests/simulation.test.js && node --test tests/trust-manager.test.js"
+  },
+  "keywords": [
+    "distributed-systems",
+    "multi-agent",
+    "trust-routing",
+    "self-healing",
+    "websocket"
+  ],
+  "author": "SYNAPSE GRID Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.18.0"
+  }
+}

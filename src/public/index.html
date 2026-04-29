@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SYNAPSE GRID</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <h1>SYNAPSE GRID</h1>
+            <p>Self-adaptive distributed multi-agent system</p>
+          </div>
+          <div class="connection" id="connection">Connecting</div>
+        </header>
+
+        <section class="visual-panel">
+          <div class="network-screen">
+            <div class="screen-header">
+              <div>
+                <h2>Network Establishment Screen</h2>
+                <p>Drag nodes to arrange the topology during the demo.</p>
+              </div>
+              <div class="screen-actions">
+                <span id="screenStatus">Nodes establishing</span>
+                <button id="resetLayout" type="button">Reset Layout</button>
+              </div>
+            </div>
+            <canvas id="networkCanvas" width="1100" height="680"></canvas>
+            <div class="screen-footer">
+              <span>Local agents</span>
+              <span>Trust links</span>
+              <span>Adaptive routes</span>
+              <span>Packet dot</span>
+              <span>Anomaly signals</span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="control-deck">
+        <section class="controls">
+          <h2>Demo Controls</h2>
+          <label>
+            Source
+            <select id="sourceNode"></select>
+          </label>
+          <label>
+            Destination
+            <select id="destinationNode"></select>
+          </label>
+          <label>
+            Control Target
+            <select id="targetNode"></select>
+          </label>
+          <label>
+            Behavior Profile
+            <select id="behaviorType"></select>
+          </label>
+          <label>
+            Topology
+            <select id="topologyMode">
+              <option value="mesh">Adaptive Mesh</option>
+              <option value="ring">Ring + Shortcuts</option>
+              <option value="random">Random Connected</option>
+            </select>
+          </label>
+          <div class="button-grid">
+            <button id="sendData">Send Data Packet</button>
+            <button id="burstTraffic">Burst Traffic</button>
+            <button id="failNode">Fail Node</button>
+            <button id="recoverNode">Recover Node</button>
+            <button id="toggleMalicious">Toggle Malicious</button>
+            <button id="setBehavior">Set Behavior</button>
+            <button id="reset">Reset Simulation</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Experiment Mode</h2>
+          <div class="button-grid">
+            <button class="scenario" data-scenario="normal">Normal</button>
+            <button class="scenario" data-scenario="attack">Attack</button>
+            <button class="scenario" data-scenario="failure">Failure</button>
+            <button class="scenario" data-scenario="stress">Stress</button>
+          </div>
+        </section>
+
+        <section>
+          <h2>System Metrics</h2>
+          <div id="metrics" class="metrics-grid"></div>
+          <div class="chart-legend">
+            <span><i class="success"></i>success</span>
+            <span><i class="trust"></i>trust</span>
+            <span><i class="latency"></i>latency/reliability</span>
+          </div>
+          <canvas id="metricsCanvas" width="320" height="130" class="mini-chart"></canvas>
+        </section>
+
+        <section>
+          <h2>External Threat Context</h2>
+          <button id="loadIntel">Load URLhaus Context</button>
+          <div id="intelPanel" class="details">Optional. Works offline with demo fallback, or live with URLHAUS_AUTH_KEY.</div>
+        </section>
+
+        <section>
+          <h2>Selected Node</h2>
+          <div id="nodeDetails" class="details">Select a node on the graph.</div>
+          <div class="chart-legend">
+            <span><i class="trust"></i>trust</span>
+            <span><i class="success"></i>reliability</span>
+          </div>
+          <canvas id="trustCanvas" width="320" height="120" class="mini-chart"></canvas>
+        </section>
+
+        <section>
+          <h2>Live Events</h2>
+          <div id="eventLog" class="event-log"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
